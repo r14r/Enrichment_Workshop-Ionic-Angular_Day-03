@@ -1,0 +1,56 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>Vier Gewinnt</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<h2>Angular Connect 4</h2>
+	<div class="buttons">
+		<h4>Game Type:</h4>
+		<label
+			><input
+				type="radio"
+				ng-model="playType"
+				name="gameType"
+				value="2"
+			/>
+			2 player (Local)</label
+		>
+		<label
+			><input
+				type="radio"
+				ng-model="playType"
+				name="gameType"
+				value="1"
+			/>
+			AI (In Dev)</label
+		>
+	</div>
+	<div class="board active-{{active}}">
+		<span class="row" *ngFor="let row of boardState; let rowindex= index">
+			{{ row }}
+			<div
+				*ngFor="let cell of row; let colindex = index"
+				class="cell active-{{cell}}"
+				(click)="drop(rowindex, colindex)"
+			></div>
+			<p style="clear:both;">{{cell}}</p>
+		</span>
+		<div class="leftFoot"></div>
+		<div class="rightFoot"></div>
+	</div>
+	<div style="clear:both"></div>
+	<button class="reset" ng-click="init()">Reset</button>
+	<button class="about" ng-click="modal = true">About</button>
+	<div ng-show="playType == 1" class="aicomments" scroll-glue>
+		<h3>AI Comments</h3>
+		<div class="comment" ng-repeat="comment in aiComments track by $index">
+			{{comment}}
+		</div>
+	</div>
+	<h2 ng-show="winner">Winner is {{winner}}</h2>
+</ion-content>

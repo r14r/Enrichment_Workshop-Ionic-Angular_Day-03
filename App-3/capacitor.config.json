@@ -1,0 +1,8 @@
+{
+  "appId": "com.example.app",
+  "appName": "app-enrichment",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

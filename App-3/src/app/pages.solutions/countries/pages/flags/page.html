@@ -1,0 +1,21 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>Flaggen</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list lines="inset">
+		<ion-item *ngFor="let flag of flags">
+			<ion-avatar slot="start">
+				<span class="flag-icon flag-icon-{{ flag }}"></span>
+			</ion-avatar>
+			<ion-label>
+				<h2>{{ flag }}</h2>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-buttons slot="start">
+			<ion-back-button router-direction="backword"></ion-back-button>
+		</ion-buttons>
+		<ion-buttons slot="end">
+			<ion-button (click)="delete(item)">DELETE</ion-button>
+		</ion-buttons>
+		<ion-title>Details</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+	<ion-card *ngIf="item">
+		<ion-card-header>
+			<ion-card-subtitle>
+			</ion-card-subtitle>
+			<ion-card-title>{{ item.name }}</ion-card-title>
+		</ion-card-header>
+
+		<ion-card-content>
+
+			<ion-item>Top Level Domain: {{item.topLevelDomain }}</ion-item>
+			<ion-item>{{ item.alpha2Code }}</ion-item>
+			<ion-item>{{ item.alpha3Code }}</ion-item>
+			<ion-item>{{ item.callingCodes }}</ion-item>
+			<ion-item>{{ item.capital }}</ion-item>
+			<ion-item>{{ item.altSpellings }}</ion-item>
+			<ion-item>{{ item.region }}</ion-item>
+			<ion-item>{{ item.subregion }}</ion-item>
+			<ion-item>{{ item.population }}</ion-item>
+			<ion-item>{{ item.latlng }}</ion-item>
+			<ion-item>{{ item.demonym }}</ion-item>
+			<ion-item>{{ item.area }}</ion-item>
+			<ion-item>{{ item.gini }}</ion-item>
+			<ion-item>{{ item.timezones }}</ion-item>
+			<ion-item>{{ item.borders }}</ion-item>
+			<ion-item>{{ item.nativeName }}</ion-item>
+			<ion-item>{{ item.numericCode }}</ion-item>
+			<ion-item>{{ item.currencies }}</ion-item>
+			<ion-item>{{ item.languages }}</ion-item>
+			<ion-item>{{ item.translations }}</ion-item>
+			<ion-item>{{ item.flag }}</ion-item>
+			<ion-item>{{ item.regionalBlocs }}</ion-item>
+			<ion-item>{{ item.cioc }}</ion-item>
+
+		</ion-card-content>
+	</ion-card>
+
+</ion-content>

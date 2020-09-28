@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>Vier Gewinnt</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<h1>Vier Gewinnt</h1>
+	<div class="grid">
+		<div *ngFor="let col of cols">
+			<div
+				class="text-center"
+				*ngFor="let row of rows"
+				(click)="cellClicked(col, row)"
+			>
+				{{ col }}/{{row }}<img
+					src="/assets/images/circle_{{ board[col][row]}}.png"
+				/>
+			</div>
+		</div>
+	</div>
+</ion-content>

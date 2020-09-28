@@ -1,0 +1,139 @@
+@mixin keyframes($name, $value) {
+	@-webkit-keyframes #{$name} {
+		from {
+			bottom: 360px;
+		}
+		to {
+			bottom: $value;
+		}
+	}
+	@keyframes #{$name} {
+		from {
+			bottom: 360px;
+		}
+		to {
+			bottom: $value;
+		}
+	}
+}
+
+// use of keyframes mixin
+@include keyframes(first, 10px);
+@include keyframes(second, 70px);
+@include keyframes(third, 130px);
+@include keyframes(fourth, 190px);
+@include keyframes(fifth, 250px);
+@include keyframes(sixth, 310px);
+
+.container {
+	width: 470px;
+	height: 360px;
+	border: 30px solid #0041e5;
+	border-top: 40px solid #0041e5;
+	margin: 0 auto;
+	border-radius: 20px;
+	position: relative;
+	overflow: hidden;
+}
+.column {
+	float: left;
+	width: 65px;
+	//margin-top: 10px;
+	position: relative;
+	&:first-child {
+		margin-left: 15px;
+	}
+	&:before {
+		content: '';
+		height: 100%;
+		width: 15px;
+		background: #0041e5;
+		position: absolute;
+		left: -15px;
+	}
+	&.last-child {
+		&:after {
+			content: '';
+			height: 100%;
+			width: 15px;
+			background: #0041e5;
+			position: absolute;
+			right: 0px;
+			top: 0;
+		}
+	}
+	li {
+		list-style-type: none;
+		background: transparent;
+		width: 50px;
+		height: 50px;
+		position: relative;
+		overflow: hidden;
+		//margin-bottom: 10px;
+		&:before {
+			content: '';
+			position: absolute;
+			bottom: 0%;
+			width: 100%;
+			height: 100%;
+			border-radius: 100%;
+			box-shadow: 0px 100px 0px 300px #0041e5;
+		}
+	}
+}
+span {
+	position: relative;
+	width: 100%;
+	background: #0041e5;
+	height: 10px;
+	display: block;
+}
+.disc {
+	position: absolute;
+	background: yellow;
+	height: 50px;
+	width: 50px;
+	border-radius: 50px;
+	z-index: -1;
+	&:nth-of-type(1) {
+		animation: 1s first linear;
+		-webkit-animation: 1s first linear;
+		bottom: 10px;
+	}
+	&:nth-of-type(2) {
+		animation: 0.83s second linear;
+		-webkit-animation: 0.83s second linear;
+		bottom: 70px;
+	}
+	&:nth-of-type(3) {
+		animation: 0.67s third linear;
+		-webkit-animation: 0.67s third linear;
+		bottom: 130px;
+	}
+	&:nth-of-type(4) {
+		animation: 0.5s fourth linear;
+		-webkit-animation: 0.5s fourth linear;
+		bottom: 190px;
+	}
+	&:nth-of-type(5) {
+		animation: 0.33s fifth linear;
+		-webkit-animation: 0.33s fifth linear;
+		bottom: 250px;
+	}
+	&:nth-of-type(6) {
+		animation: 0.17s sixth linear;
+		-webkit-animation: 0.17s sixth linear;
+		bottom: 310px;
+	}
+	&.yellow {
+		background: yellow;
+	}
+	&.red {
+		background: red;
+	}
+}
+h1 {
+	font-family: sans-serif;
+	font-weight: 100;
+	text-align: center;
+}
