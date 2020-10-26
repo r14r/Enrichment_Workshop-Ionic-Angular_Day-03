@@ -1,8 +1,4 @@
-import {
-	Component,
-	OnInit,
-	ViewEncapsulation
-} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import * as d3 from 'd3';
 
@@ -12,7 +8,7 @@ import { HelperService } from 'src/app/helpers/helper.service';
 	selector: 'app-function-plotter',
 	templateUrl: './page.html',
 	styleUrls: ['./page.scss'],
-	encapsulation: ViewEncapsulation.None
+	encapsulation: ViewEncapsulation.None,
 })
 export class FunctionPlotterPage implements OnInit {
 	public ID = 'BasicShapesPage';
@@ -73,9 +69,7 @@ export class FunctionPlotterPage implements OnInit {
 	}
 
 	setScaleY(svg) {
-		svg.append('g')
-			.attr('class', 'y axis')
-			.call(d3.axisLeft(this.yScale));
+		svg.append('g').attr('class', 'y axis').call(d3.axisLeft(this.yScale));
 	}
 
 	f(func, x) {
@@ -135,26 +129,26 @@ export class FunctionPlotterPage implements OnInit {
 		// Get the data
 		if (false) {
 			d3.csv('/assets/data/graph.csv')
-				.then(data => {
-					const slices = data.columns.slice(1).map(id => {
+				.then((data) => {
+					const slices = data.columns.slice(1).map((id) => {
 						return {
 							id,
-							values: data.map(d => {
+							values: data.map((d) => {
 								return {
-									date: (d.date),
-									measurement: +d[id]
+									date: d.date,
+									measurement: +d[id],
 								};
-							})
+							}),
 						};
 					});
 				})
-				.catch(error => {
+				.catch((error) => {
 					// handle error
 				});
 		}
 
 		this.toolbox.log('createGraph', 'setup gdata');
-		this.dataset = d3.range(this.n).map(x => {
+		this.dataset = d3.range(this.n).map((x) => {
 			return this.f('sqr', x);
 
 			return { y: (x - this.n / 2) * (x - this.n / 2) };
@@ -181,7 +175,7 @@ export class FunctionPlotterPage implements OnInit {
 		const line = d3
 			.line()
 			.x((d, i) => this.xScale(i))
-			.y(d => this.yScale(d.y))
+			.y((d) => this.yScale(d.y))
 			.curve(d3.curveMonotoneX);
 
 		const timeConv = d3.timeParse('%d-%b-%Y');
@@ -201,7 +195,7 @@ export class FunctionPlotterPage implements OnInit {
 			.append('circle')
 			.attr('class', 'dot')
 			.attr('cx', (d, i) => this.xScale(i))
-			.attr('cy', d => this.yScale(d.y))
+			.attr('cy', (d) => this.yScale(d.y))
 			.attr('r', 5)
 			.on('mouseover', (d, i) => {
 				this.toolbox.log(
@@ -214,14 +208,13 @@ export class FunctionPlotterPage implements OnInit {
 				this.tooltip.style('visibility', 'visible');
 			})
 			.on('mousemove', () => {
-				this.tooltip
-					.transition()
-					.duration(200)
-					.style('opacity', 0.9);
+				this.tooltip.transition().duration(200).style('opacity', 0.9);
 
+				/* @TODO
 				this.tooltip
 					.style('top', d3.event.pageY - 10 + 'px')
 					.style('left', d3.event.pageX + 10 + 'px');
+				*/
 			})
 			.on('mouseout', () => {
 				this.toolbox.log('createGraph', 'mouseout');

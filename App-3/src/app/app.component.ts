@@ -7,17 +7,33 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 @Component({
 	selector: 'app-root',
 	templateUrl: 'app.component.html',
-	styleUrls: ['app.component.scss']
+	styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
 	public appPages = [
 		{ title: 'Demo', url: '/demo', icon: 'home' },
 		{ title: 'Vier gewinnt: 1', url: '/game/connect4/1', icon: 'home' },
 		{ title: 'Vier gewinnt: 2', url: '/game/connect4/2', icon: 'home' },
-		{ title: 'Vier gewinnt: Demo1', url: '/game/connect4/Demo1', icon: 'home' },
-		{ title: 'Vier gewinnt: Demo2', url: '/game/connect4/Demo2', icon: 'home' },
-		{ title: 'Vier gewinnt: Demo3', url: '/game/connect4/Demo3', icon: 'home' },
-		{ title: 'Vier gewinnt: Demo4', url: '/game/connect4/Demo4', icon: 'home' },
+		{
+			title: 'Vier gewinnt: Demo1',
+			url: '/game/connect4/demo1',
+			icon: 'home',
+		},
+		{
+			title: 'Vier gewinnt: Demo2',
+			url: '/game/connect4/demo2',
+			icon: 'home',
+		},
+		{
+			title: 'Vier gewinnt: Demo3',
+			url: '/game/connect4/demo3',
+			icon: 'home',
+		},
+		{
+			title: 'Vier gewinnt: Demo4',
+			url: '/game/connect4/demo4',
+			icon: 'home',
+		},
 
 		{ title: 'Home', url: '/home', icon: 'home' },
 		{ title: 'List', url: '/list', icon: 'list' },
@@ -28,18 +44,18 @@ export class AppComponent {
 		{
 			title: 'Solution: Countries',
 			url: '/solutions/countries',
-			icon: 'list'
+			icon: 'list',
 		},
 		{
 			title: 'Solution: Countries (with Components)',
 			url: '/solutions/countries_with_components',
-			icon: 'list'
+			icon: 'list',
 		},
 		{
 			title: 'D3: Function Plotter',
 			url: '/d3/function-plotter',
-			icon: 'stats'
-		}
+			icon: 'stats',
+		},
 	];
 
 	constructor(

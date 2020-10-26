@@ -32,18 +32,13 @@ export class Connect4Demo1Page implements OnInit {
 		this.tally = this.oneClick++;
 
 		if (this.tally % 2 === 0) {
-			$(this).append('<div class="disc yellow"></div>');
+			// @TODO $(this).append('<div class="disc yellow"></div>');
 		} else {
-			$(this).append('<div class="disc red"></div>');
+			// @TODO $(this).append('<div class="disc red"></div>');
 		}
-	};
+	}
 
-	init() { }
-}
-
-
-
-init() {
-	this.helper.log('init');
-}
+	init() {
+		this.helper.log('init');
+	}
 }

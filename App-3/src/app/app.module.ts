@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { RouteReuseStrategy } from '@angular/router';
+
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+import { Storage } from '@ionic/storage';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,14 +19,14 @@ import { AppRoutingModule } from './app-routing.module';
 		BrowserModule,
 		IonicModule.forRoot(),
 		AppRoutingModule,
-		HttpClientModule
+		HttpClientModule,
 	],
 	providers: [
 		StatusBar,
 		SplashScreen,
+		HttpClient,
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-		HttpClient, Storage
 	],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,8 +1,13 @@
 {
-  "appId": "com.example.app",
-  "appName": "app-enrichment",
+  "appId": "io.ionic.starter",
+  "appName": "App-3",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
   "cordova": {}
 }

@@ -23,31 +23,31 @@
 .toolbar {
 	text-align: center;
 }
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 .container {
 	color: white;
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	animation: clouds 5000ms infinite;
 	background-image: linear-gradient(
 			to bottom,
 			transparent,
 			rgba(196, 222, 255, 0.623)
 		),
-		url(/assets/images/day-clear-clouds.jpeg);
+		url(/assets/img/day-clear-clouds.jpeg);
 	-webkit-animation: clouds 200s linear infinite;
 }
 
 .container-night {
 	color: white;
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	animation: clouds 5000ms infinite;
 	background-image: linear-gradient(
 			to bottom,
 			transparent,
 			rgba(196, 222, 255, 0.623)
 		),
-		url(/assets/images/clouds-ight.jpg);
+		url(/assets/img/clouds-ight.jpg);
 	-webkit-animation: clouds 200s linear infinite;
 }
 
