@@ -3,7 +3,7 @@
 	set -u
 
 #-------------------------------------------------------------------------------
-	_DEPLOY_VERSION=1.0.2-01
+	_DEPLOY_VERSION=1.1.0-01 
 
 #-------------------------------------------------------------------------------
 	ARGV=$BASH_ARGV
@@ -280,7 +280,7 @@ use_java() {
 	fi
 
 	if [ "${SYSTEM,,}" == "linux" ]; then
-		export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-${USE_JAVA}-hotspot-amd64
+		export JAVA_HOME=$(ls -1d /usr/lib/jvm/adoptopenjdk-${USE_JAVA}-*-amd64 | head -1)
 	else
 		export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-${USE_JAVA}.jdk/Contents/Home
 	fi
@@ -535,79 +535,79 @@ fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_FASTLANE" != "NO" ]]; then
-	status_timer	"Fastlane"	"$USE_FASTLANE"
+	status_timer	"Fastlane"		"$USE_FASTLANE"
 	use_fastlane
-	status  		"Fastlane"	"$USE_FASTLANE"	"Enabled"	"$_FASTLANE_VERSION"	"$_FASTLANE_PATH"
+	status  		"Fastlane"		"$USE_FASTLANE"	"Enabled"	"$_FASTLANE_VERSION"	"$_FASTLANE_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_ANDROID" != "NO" ]]; then
-	status_timer	"Android"	"$USE_ANDROID"
+	status_timer	"Android"		"$USE_ANDROID"
 	use_android
-	status   		"Android"	"$USE_ANDROID"	"Enabled"	"$_ANDROID_VERSION"	"$_ANDROID_PATH"
+	status   		"Android"		"$USE_ANDROID"	"Enabled"	"$_ANDROID_VERSION"	"$_ANDROID_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_PYTHON" != "NO" ]]; then
-	status_timer	"Python"	"$USE_PYTHON"
+	status_timer	"Python"		"$USE_PYTHON"
 	use_python_venv
-	status  		"Python"	"$USE_PYTHON"			"$AUTOENV_STATUS"	"$_PYTHON_VERSION"		"$_PYTHON_PATH"
+	status  		"Python"		"$USE_PYTHON"	"Enabled"	"$_PYTHON_VERSION"		"$_PYTHON_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_JAVA" != "NO" ]]; then
 	status_timer	"Java"			"$USE_JAVA"
 	use_java
-	status  		"Java"			"$USE_JAVA"			"$AUTOENV_STATUS"	"$_JAVA_VERSION"		"$_JAVA_PATH"
+	status  		"Java"			"$USE_JAVA"		"Enabled"	"$_JAVA_VERSION"		"$_JAVA_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_GROOVY" != "NO" ]]; then
 	status_timer	"Groovy"		"$USE_GROOVY"
 	use_groovy
-	status  		"Groovy"		"$USE_GROOVY"		"$AUTOENV_STATUS"	"$_GROOVY_VERSION"		"$_GROOVY_PATH"
+	status  		"Groovy"		"$USE_GROOVY"	"Enabled"	"$_GROOVY_VERSION"		"$_GROOVY_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_GRADLE" != "NO" ]]; then
 	status_timer	"Gradle"		"$USE_GRADLE"
 	use_gradle
-	status  		"Gradle"		"$USE_GRADLE"		"$AUTOENV_STATUS"	"$_GRADLE_VERSION"		"$_GRADLE_PATH"
+	status  		"Gradle"		"$USE_GRADLE"	"Enabled"	"$_GRADLE_VERSION"		"$_GRADLE_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_MYSQL" != "NO" ]]; then
 	status_timer	"MySQL"			"$USE_MYSQL"
 	use_mysql
-	status  		"MySQL"			"$USE_MYSQL"		"$AUTOENV_STATUS"	"$_MYSQL_VERSION"		"$_MYSQL_PATH"
+	status  		"MySQL"			"$USE_MYSQL"	"Enabled"	"$_MYSQL_VERSION"		"$_MYSQL_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_SUBVERSION" != "NO" ]]; then
-	status_timer	"Subversion"	"USE=$USE_SUBVERSION"
+	status_timer	"Subversion"	"$USE_SUBVERSION"
 	use_subversion
-	status  		"Subversion"	"USE=$USE_SUBVERSION"	"$AUTOENV_STATUS"	"$_SUBVERSION_VERSION"		"$_SUBVERSION_PATH"
+	status  		"Subversion"	"$USE_SUBVERSION"	"Enabled"	"$_SUBVERSION_VERSION"		"$_SUBVERSION_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_JENKINS" != "NO" ]]; then
-	status_timer	"Jenkins"		"USE=$USE_JENKINS"
+	status_timer	"Jenkins"		"$USE_JENKINS"
 	use_jenkins
-	status  		"Jenkins"		"USE=$USE_JENKINS"	"$AUTOENV_STATUS"	"$_JENKINS_VERSION"		"$_JENKINS_PATH"
+	status  		"Jenkins"		"$USE_JENKINS"		"Enabled"	"$_JENKINS_VERSION"		"$_JENKINS_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_ZEPPELIN" != "NO" ]]; then
-	status_timer	"Zeppelin"		"USE=$USE_ZEPPELIN"
+	status_timer	"Zeppelin"		"$USE_ZEPPELIN"
 	use_zeppelin
-	status  		"Zeppelin"		"USE=$USE_ZEPPELIN"	"$AUTOENV_STATUS"	"$_ZEPPELIN_VERSION"	"$_ZEPPELIN_PATH"
+	status  		"Zeppelin"		"$USE_ZEPPELIN"	"Enabled"	"$AUTOENV_STATUS"	"$_ZEPPELIN_VERSION"	"$_ZEPPELIN_PATH"
 fi
 
 #-------------------------------------------------------------------------------
 if [[ "$USE_HADOOP" != "NO" ]]; then
-	status_timer	"Hadoop"		"USE=$USE_HADOOP"
+	status_timer	"Hadoop"		"$USE_HADOOP"
 	use_hadoop
-	status  		"Hadoop"		"USE=$USE_HADOOP"	"$AUTOENV_STATUS"	"$_HADOOP_VERSION"		"$_HADOOP_PATH"
+	status  		"Hadoop"		"$USE_HADOOP"	"Enabled"	"$AUTOENV_STATUS"	"$_HADOOP_VERSION"		"$_HADOOP_PATH"
 fi
 
 #-------------------------------------------------------------------------------
